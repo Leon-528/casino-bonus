@@ -1,0 +1,11 @@
+<svg width="320" height="160" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC94A" />
+      <stop offset="1" stop-color="#FF6A00" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="160" rx="24" fill="#231406" />
+  <rect x="10" y="10" width="300" height="140" rx="18" fill="url(#g)" opacity="0.2" />
+  <text x="48" y="95" fill="white" font-family="Verdana" font-size="35" font-weight="700">VOLT VEGAS</text>
+</svg>

@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leon_528 Bonus & Partner Landingpage
 
-## Getting Started
+Modernes Next.js Landingpage-Projekt fuer einen Twitch Slot Streamer mit Live-Twitch-Media-Kit und Partner-Casino-Directory.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js App Router + TypeScript + Tailwind + shadcn/ui
+- Premium Landingpage (Dark Mode default, Light Toggle, subtile Framer Motion Animationen)
+- Sticky Navigation mit Sections: Casinos, Top Bonuses, Twitch Stats, FAQ, Responsible Gaming
+- Casino-Grid mit:
+  - Suche
+  - Multi-Filter (`Highest Bonus`, `Fast Payout`, `Crypto`, `Low Wagering`, `New`)
+  - Sortierung (`Recommended`, `Highest Rated`, `Biggest Bonus`)
+  - Detail-Dialog (Pros/Cons, Wagering, Min Deposit, Payout Speed, Zahlungsarten)
+- Twitch Media Kit mit echten API Daten:
+  - Follower
+  - Live/Offline
+  - Kategorie/Game + Titel (wenn live)
+  - Viewer Count (wenn live)
+  - Last Streamed (fallback ueber `videos`)
+  - Profilbild + Kanal-Link
+- Sauberer Fehlerzustand ohne Mockdaten: `Twitch Daten momentan nicht verfuegbar`
+- Vercel-ready inkl. Node runtime in Route Handler
+
+## Tech Stack
+
+- Next.js 14.2.x (App Router)
+- TypeScript
+- Tailwind CSS 3
+- shadcn/ui Komponenten (Card, Button, Badge, Tabs, Dialog, Tooltip, Skeleton, DropdownMenu)
+- lucide-react
+- framer-motion
+
+## Projektstruktur
+
+- `app/page.tsx` - Startseite
+- `app/responsible-gaming/page.tsx` - Responsible Gaming + Disclosure
+- `app/api/twitch/summary/route.ts` - Twitch Summary API
+- `lib/twitch.ts` - Twitch Auth, Requests, Caches
+- `data/casinos.ts` - Casino Daten (mind. 8)
+- `types/twitch.ts` / `types/casino.ts` - Typen
+
+## Environment Variablen
+
+Lokal:
+
+```powershell
+Copy-Item .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Danach die Platzhalter in `.env.local` ersetzen:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+TWITCH_CLIENT_ID="dein_client_id"
+TWITCH_CLIENT_SECRET="dein_client_secret"
+TWITCH_CHANNEL_LOGIN="leon_528"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vercel:
 
-## Learn More
+- `Project Settings -> Environment Variables`
+- dieselben 3 Keys eintragen
 
-To learn more about Next.js, take a look at the following resources:
+## Twitch API Implementierung
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Der Endpoint `GET /api/twitch/summary` nutzt:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. `GET /helix/users?login=leon_528`
+2. `GET /helix/streams?user_id=<id>`
+3. `GET /helix/channels/followers?broadcaster_id=<id>`
+4. `GET /helix/videos?user_id=<id>&first=1&type=archive`
 
-## Deploy on Vercel
+### Caching
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- App Access Token wird serverseitig in-memory gecacht bis kurz vor Ablauf.
+- Summary wird serverseitig 120 Sekunden in-memory gecacht.
+- Route Header: `Cache-Control: s-maxage=120, stale-while-revalidate=120`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Follower Endpoint Hinweis
+
+`/channels/followers` kann je nach Token-Setup eingeschraenkt sein. Deshalb ist ein offizieller Fallback auf `/users/follows?to_id=<id>` implementiert.
+
+Wenn beide Varianten nicht verfuegbar sind, wird **kein Fake-Wert** angezeigt, sondern `followerCount = null` (UI: "Nicht verfuegbar").
+
+## Lokal starten
+
+```bash
+npm install
+npm run dev
+```
+
+Build testen:
+
+```bash
+npm run build
+```
+
+## Vercel Deployment
+
+1. GitHub Repo erstellen und Code pushen.
+2. In Vercel `Add New -> Project` und Repo importieren.
+3. Unter `Project Settings -> Environment Variables` setzen:
+   - `TWITCH_CLIENT_ID`
+   - `TWITCH_CLIENT_SECRET`
+   - `TWITCH_CHANNEL_LOGIN` (Wert: `leon_528`)
+4. Deploy ausloesen.
+
+Danach pruefen:
+
+- `/` laedt normal
+- `/api/twitch/summary` liefert JSON
+- Twitch Stats Section zeigt Live-Daten oder sauberen Error State
+
+## Hinweise
+
+- Casino Daten in `data/casinos.ts` sind statisch (beabsichtigt).
+- Twitch Kennzahlen in der UI werden **nicht** hardcoded gerendert.
+- Bitte nur fuer 18+ Zielgruppen einsetzen und lokale rechtliche Vorgaben beachten.
