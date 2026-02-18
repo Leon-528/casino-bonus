@@ -74,10 +74,24 @@ export function TwitchStatsSection() {
       }
     }
 
-    loadSummary();
+    void loadSummary();
+
+    const intervalId = window.setInterval(() => {
+      void loadSummary();
+    }, 30_000);
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        void loadSummary();
+      }
+    };
+
+    window.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       mounted = false;
+      window.clearInterval(intervalId);
+      window.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [text.twitch.unavailableTitle]);
 
@@ -167,6 +181,7 @@ function SuccessState({
   locale: string;
 }) {
   const { text } = useLanguage();
+  const displayChannelName = summary.channel.replaceAll("_", "");
 
   const numberFormatter = useMemo(() => new Intl.NumberFormat(locale), [locale]);
 
@@ -191,12 +206,12 @@ function SuccessState({
               <div className="flex flex-col items-center text-center">
                 <Image
                   src={summary.profileImageUrl}
-                  alt="Profilbild Leon_528"
+                  alt="Profilbild Leon528"
                   width={112}
                   height={112}
                   className="rounded-full border border-border/60"
                 />
-                <h3 className="mt-4 text-xl font-semibold">{summary.channel}</h3>
+                <h3 className="mt-4 text-xl font-semibold">{displayChannelName}</h3>
                 <p className="text-sm text-muted-foreground">{text.twitch.profileRole}</p>
                 <Button asChild className="mt-4 w-full">
                   <Link
@@ -254,7 +269,7 @@ function SuccessState({
                 <CardContent className="grid gap-3 pt-6 text-sm text-muted-foreground">
                   <p>
                     {text.twitch.kit.creator}:{" "}
-                    <span className="font-semibold text-foreground">Leon_528</span>
+                    <span className="font-semibold text-foreground">Leon528</span>
                   </p>
                   <p>
                     {text.twitch.kit.channelUrl}:{" "}

@@ -21,20 +21,20 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
   title: {
-    default: "Leon_528 Bonus & Partner",
-    template: "%s | Leon_528"
+    default: "Leon528 Bonus & Partner",
+    template: "%s | Leon528"
   },
   description:
-    "Premium Bonus & Partner landing page for the Leon_528 community with Twitch live stats and a responsible-gaming focus.",
+    "Premium Bonus & Partner landing page for the Leon528 community with Twitch live stats and a responsible-gaming focus.",
   keywords: [
-    "Leon_528",
+    "Leon528",
     "Twitch Streamer",
     "Casino Boni",
     "Affiliate",
     "Responsible Gaming"
   ],
   openGraph: {
-    title: "Leon_528 Bonus & Partner",
+    title: "Leon528 Bonus & Partner",
     description:
       "Exclusive community bonuses plus live Twitch metrics directly from the Twitch API.",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leon_528 Bonus & Partner",
+    title: "Leon528 Bonus & Partner",
     description:
       "Exclusive community bonuses plus live Twitch metrics directly from the Twitch API."
   }

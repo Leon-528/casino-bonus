@@ -7,12 +7,12 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const summary = await getCachedTwitchSummary(120);
+    const summary = await getCachedTwitchSummary(30);
 
     return NextResponse.json(summary, {
       status: 200,
       headers: {
-        "Cache-Control": "s-maxage=120, stale-while-revalidate=120"
+        "Cache-Control": "no-store"
       }
     });
   } catch (error) {

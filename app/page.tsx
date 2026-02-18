@@ -10,9 +10,9 @@ import { TwitchStatsSection } from "@/components/twitch-stats-section";
 import { casinos, topPickIds } from "@/data/casinos";
 
 export const metadata: Metadata = {
-  title: "Leon_528 Bonus & Partner | Casino Bonuses + Twitch Stats",
+  title: "Leon528 Bonus & Partner | Casino Bonuses + Twitch Stats",
   description:
-    "Exclusive casino partner bonuses for the Leon_528 community with transparent terms and live Twitch media kit data.",
+    "Exclusive casino partner bonuses for the Leon528 community with transparent terms and live Twitch media kit data.",
   alternates: {
     canonical: "/"
   }

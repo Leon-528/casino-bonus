@@ -3,7 +3,7 @@ import type { Language } from "@/types/language";
 export const translations = {
   de: {
     header: {
-      homeAriaLabel: "Startseite Leon_528 Bonus Partner",
+      homeAriaLabel: "Startseite Leon528 Bonus Partner",
       navAriaLabel: "Hauptnavigation",
       casinos: "Casinos",
       topBonuses: "Top Bonuses",
@@ -25,7 +25,7 @@ export const translations = {
     },
     hero: {
       badge: "BONI, PARTNER & MEDIA KIT",
-      headline: "Exklusive Casino-Boni für die Leon_528 Community",
+      headline: "Exklusive Casino-Boni für die Leon528 Community",
       subtext:
         "Diese Seite enthält Affiliate-Links. 18+ only. Bitte verantwortungsvoll spielen und Bonusbedingungen immer vorab prüfen.",
       primaryCta: "Top Boni ansehen",
@@ -182,7 +182,7 @@ export const translations = {
   },
   en: {
     header: {
-      homeAriaLabel: "Leon_528 bonus partner homepage",
+      homeAriaLabel: "Leon528 bonus partner homepage",
       navAriaLabel: "Main navigation",
       casinos: "Casinos",
       topBonuses: "Top Bonuses",
@@ -204,7 +204,7 @@ export const translations = {
     },
     hero: {
       badge: "BONUS, PARTNERS & MEDIA KIT",
-      headline: "Exclusive Casino Bonuses for the Leon_528 Community",
+      headline: "Exclusive Casino Bonuses for the Leon528 Community",
       subtext:
         "This page contains affiliate links. 18+ only. Please gamble responsibly and always review bonus terms.",
       primaryCta: "View Top Bonuses",

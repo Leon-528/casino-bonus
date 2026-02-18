@@ -26,7 +26,7 @@ export function SiteHeader() {
           className="text-lg font-semibold tracking-[0.08em] text-foreground/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={text.header.homeAriaLabel}
         >
-          LEON_528 BONUS
+          LEON528 BONUS
         </Link>
 
         <nav className="hidden items-center gap-5 lg:flex" aria-label={text.header.navAriaLabel}>
