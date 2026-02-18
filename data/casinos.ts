@@ -7,7 +7,7 @@ export const casinos: Casino[] = [
     logo: "/logos/northstar.svg",
     rating: 4.9,
     bonusTitle: "200% bis EUR500 + 100 Freispiele",
-    bonusDetails: "Ideal fuer High-Roller mit VIP Cashback und taeglicher Reload Option.",
+    bonusDetails: "Ideal für High-Roller mit VIP Cashback und täglicher Reload Option.",
     benefits: [
       "48h Express Verifizierung",
       "Treueprogramm mit Weekly Cashback",
@@ -25,7 +25,7 @@ export const casinos: Casino[] = [
       "Schneller KYC Prozess",
       "Stabile Mobil-Performance"
     ],
-    cons: ["Live Chat nur auf Englisch in der Nacht", "Weniger eSports Wettmaerkte"],
+    cons: ["Live Chat nur auf Englisch in der Nacht", "Weniger eSports Wettmärkte"],
     wagering: "35x Bonus",
     minDeposit: "EUR20",
     payoutSpeed: "0-24 Stunden",
@@ -37,10 +37,10 @@ export const casinos: Casino[] = [
     logo: "/logos/atlas.svg",
     rating: 4.7,
     bonusTitle: "100% bis EUR1000 + 150 Freispiele",
-    bonusDetails: "Starker Match-Bonus mit optionalem Risk-Free Weekend fuer neue Spieler.",
+    bonusDetails: "Starker Match-Bonus mit optionalem Risk-Free Weekend für neue Spieler.",
     benefits: [
       "Hoher Max Cashout bei Bonus",
-      "Woechentliche Slot-Races",
+      "Wöchentliche Slot-Races",
       "Breites Pragmatic und Hacksaw Portfolio",
       "Schneller In-App Support"
     ],
@@ -49,7 +49,7 @@ export const casinos: Casino[] = [
     paymentMethods: ["SEPA", "Skrill", "Jeton", "BTC", "ETH", "LTC"],
     affiliateUrl: "https://atlas.partners.example/l528",
     reviewLong:
-      "Atlas Spins punktet mit grosszuegiger Bonusstruktur und vielen Turnierformaten. Fuer Crypto-Fans ist die Auswahl an Wallet-Optionen ueberdurchschnittlich gut.",
+      "Atlas Spins punktet mit großzügiger Bonusstruktur und vielen Turnierformaten. Für Crypto-Fans ist die Auswahl an Wallet-Optionen überdurchschnittlich gut.",
     pros: ["Sehr hoher Bonusdeckel", "Viele Promotions", "Starke Crypto-Optionen"],
     cons: ["Onboarding etwas textlastig"],
     wagering: "40x Bonus",
@@ -63,7 +63,7 @@ export const casinos: Casino[] = [
     logo: "/logos/neonreef.svg",
     rating: 4.8,
     bonusTitle: "150% bis EUR400 + 200 Freispiele",
-    bonusDetails: "Balanciertes Paket mit niedrigen Einsatzlimits fuer entspannte Sessions.",
+    bonusDetails: "Balanciertes Paket mit niedrigen Einsatzlimits für entspannte Sessions.",
     benefits: [
       "Niedrige Mindestwette bei Bonus",
       "Intuitive Lobby mit Smart Filter",
@@ -75,7 +75,7 @@ export const casinos: Casino[] = [
     paymentMethods: ["Visa", "Sofort", "Trustly", "Paysafecard"],
     affiliateUrl: "https://go.neonreef.example/leon",
     reviewLong:
-      "Neon Reef richtet sich an Spieler, die transparente Regeln und kurze Wege moegen. Die Benutzerfuehrung ist modern und das Bonus-Wagering fair gestaltet.",
+      "Neon Reef richtet sich an Spieler, die transparente Regeln und kurze Wege mögen. Die Benutzerführung ist modern und das Bonus-Wagering fair gestaltet.",
     pros: ["Nutzerfreundliches Interface", "Niedrige Bonusanforderung", "Sehr gute FAQ"],
     cons: ["Noch kleineres Live-Game Angebot"],
     wagering: "25x Bonus",
@@ -89,7 +89,7 @@ export const casinos: Casino[] = [
     logo: "/logos/titan.svg",
     rating: 4.6,
     bonusTitle: "250 Freispiele + 20% Weekly Cashback",
-    bonusDetails: "Cashback-first Modell fuer regelmaessige Slot Sessions.",
+    bonusDetails: "Cashback-first Modell für regelmäßige Slot Sessions.",
     benefits: [
       "Fester Cashback Slot jede Woche",
       "Transparente T&C in Kurzform",
@@ -101,7 +101,7 @@ export const casinos: Casino[] = [
     paymentMethods: ["Skrill", "Neteller", "SEPA", "Apple Pay"],
     affiliateUrl: "https://titanvault.aff.example/leon_528",
     reviewLong:
-      "Titan Vault hat eine klare Cashback-Strategie und eignet sich gut fuer loyale Spieler. Besonders stark: schnelle Auszahlungen und faire Bedingungen beim Bonus.",
+      "Titan Vault hat eine klare Cashback-Strategie und eignet sich gut für loyale Spieler. Besonders stark: schnelle Auszahlungen und faire Bedingungen beim Bonus.",
     pros: ["Stabiles Cashback", "Saubere UX", "Schneller Support"],
     cons: ["Weniger Exklusivspiele"],
     wagering: "28x Freispiele",
@@ -115,19 +115,19 @@ export const casinos: Casino[] = [
     logo: "/logos/sapphire.svg",
     rating: 4.5,
     bonusTitle: "75% bis EUR600 + 50 Freispiele",
-    bonusDetails: "Konservativer Bonus, dafuer starke Banking-Optionen und hohe Limits.",
+    bonusDetails: "Konservativer Bonus, dafür starke Banking-Optionen und hohe Limits.",
     benefits: [
       "VIP Manager ab Level 2",
       "Hohe monatliche Auszahlungslimits",
       "Starke Turnierstruktur",
-      "Viele Provider fuer klassische Slots"
+      "Viele Provider für klassische Slots"
     ],
     regions: ["DE", "AT", "CH", "EU"],
     tags: ["Fast Payout"],
     paymentMethods: ["SEPA", "Skrill", "Revolut", "Bank Transfer"],
     affiliateUrl: "https://sapphireace.media/leon528",
     reviewLong:
-      "Sapphire Ace ist besonders fuer Spieler interessant, die auf Zahlungsflexibilitaet und hohe Limits achten. Das Bonusangebot ist kleiner, dafuer sehr transparent.",
+      "Sapphire Ace ist besonders für Spieler interessant, die auf Zahlungsflexibilität und hohe Limits achten. Das Bonusangebot ist kleiner, dafür sehr transparent.",
     pros: ["Starke Banking-Infra", "Solider RTP Mix", "Schnelle Support-Reaktion"],
     cons: ["Kein Crypto", "Weniger Free-Spins-Deals"],
     wagering: "30x Bonus",
@@ -143,9 +143,9 @@ export const casinos: Casino[] = [
     bonusTitle: "120% bis EUR700 + 80 Freispiele",
     bonusDetails: "Crypto-freundliches Casino mit schnellen Wallet-Auszahlungen.",
     benefits: [
-      "Instant Wallet Cashout fuer ausgew. Coins",
+      "Instant Wallet Cashout für ausgew. Coins",
       "Moderne Live-Lobby",
-      "Woechentliche Community Challenges",
+      "Wöchentliche Community Challenges",
       "Klares Bonus-Dashboard"
     ],
     regions: ["DE", "EU", "LATAM"],
@@ -153,9 +153,9 @@ export const casinos: Casino[] = [
     paymentMethods: ["BTC", "ETH", "USDT", "Visa", "Skrill"],
     affiliateUrl: "https://partners.voltvegas.example/leon_528",
     reviewLong:
-      "Volt Vegas kombiniert moderne UX mit starkem Crypto-Fokus. Vor allem die klaren Wallet-Flows und schnellen Auszahlungen machen die Plattform fuer Tech-affine Nutzer attraktiv.",
+      "Volt Vegas kombiniert moderne UX mit starkem Crypto-Fokus. Vor allem die klaren Wallet-Flows und schnellen Auszahlungen machen die Plattform für Tech-affine Nutzer attraktiv.",
     pros: ["Sehr gute Crypto Experience", "Schnelle Auszahlung", "Modernes Design"],
-    cons: ["Regional eingeschraenkte Promotions"],
+    cons: ["Regional eingeschränkte Promotions"],
     wagering: "32x Bonus",
     minDeposit: "EUR15",
     payoutSpeed: "0-6 Stunden",
@@ -167,10 +167,10 @@ export const casinos: Casino[] = [
     logo: "/logos/crimson.svg",
     rating: 4.4,
     bonusTitle: "300 Freispiele ohne Einzahlung",
-    bonusDetails: "No-Deposit Fokus mit anschliessendem Match-Bonus fuer Neukunden.",
+    bonusDetails: "No-Deposit Fokus mit anschließendem Match-Bonus für Neukunden.",
     benefits: [
-      "Gratis Spins fuer Start",
-      "Uebersichtliche Bonushistorie",
+      "Gratis Spins für Start",
+      "Übersichtliche Bonushistorie",
       "Stabile App auf Android/iOS",
       "Live Support mit kurzer Wartezeit"
     ],
@@ -179,7 +179,7 @@ export const casinos: Casino[] = [
     paymentMethods: ["Visa", "Mastercard", "Trustly", "Paysafecard"],
     affiliateUrl: "https://crimson.media.example/l528",
     reviewLong:
-      "Crimson Crown setzt stark auf Neukundenaktivierung mit grosszuegigem Spin-Angebot. Das Angebot ist gut fuer Casual Sessions, bei High-Roller Features jedoch begrenzter.",
+      "Crimson Crown setzt stark auf Neukundenaktivierung mit großzügigem Spin-Angebot. Das Angebot ist gut für Casual Sessions, bei High-Roller Features jedoch begrenzter.",
     pros: ["Viele kostenlose Spins", "Schnelles Signup", "Gute mobile App"],
     cons: ["Mittlere Auszahlungsgeschwindigkeit", "Weniger VIP Optionen"],
     wagering: "45x Freispiele",
@@ -198,14 +198,14 @@ export const casinos: Casino[] = [
       "Ausgewogene Bonuskonditionen",
       "Sehr gute Responsible-Gaming Tools",
       "Monatliche Reload-Promos",
-      "Live-Limits fuer gutes Bankroll-Management"
+      "Live-Limits für gutes Bankroll-Management"
     ],
     regions: ["DE", "CH", "EU"],
     tags: ["Low Wagering", "Crypto"],
     paymentMethods: ["Visa", "SEPA", "BTC", "ETH", "Payz"],
     affiliateUrl: "https://orbitnine.partners.example/leon_528",
     reviewLong:
-      "Orbit Nine ist ein klarer Allrounder mit sehr brauchbaren Responsible-Gaming Features. Das macht die Plattform besonders fuer langfristig orientierte Spieler interessant.",
+      "Orbit Nine ist ein klarer Allrounder mit sehr brauchbaren Responsible-Gaming Features. Das macht die Plattform besonders für langfristig orientierte Spieler interessant.",
     pros: ["Sehr faire Bonusregeln", "Crypto + Fiat", "Gute Session-Kontrolle"],
     cons: ["Weniger exklusive Jackpot Slots"],
     wagering: "26x Bonus",

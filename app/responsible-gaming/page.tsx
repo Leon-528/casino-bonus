@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export const metadata: Metadata = {
   title: "Responsible Gaming | Leon_528 Bonus & Partner",
   description:
-    "Responsible Gaming Richtlinien, 18+ Hinweis und Affiliate Disclosure fuer die Leon_528 Bonus & Partner Seite.",
+    "Responsible Gaming Richtlinien, 18+ Hinweis und Affiliate Disclosure für die Leon_528 Bonus & Partner Seite.",
   alternates: {
     canonical: "/responsible-gaming"
   }
@@ -18,8 +18,8 @@ const principles = [
   "Spiele nur mit einem festen Budget und setze vorab klare Limits.",
   "Niemals Verlusten hinterherjagen (No Chasing).",
   "Nutze Reality Checks, Session-Limits und Selbstausschluss-Optionen.",
-  "Lege regelmaessige Pausen ein und spiele nicht unter Stress.",
-  "Such dir Hilfe, sobald Spielen Druck oder finanzielle Probleme ausloest."
+  "Lege regelmäßige Pausen ein und spiele nicht unter Stress.",
+  "Such dir Hilfe, sobald Spielen Druck oder finanzielle Probleme auslöst."
 ];
 
 export default function ResponsibleGamingPage() {
@@ -29,7 +29,7 @@ export default function ResponsibleGamingPage() {
         <Button asChild variant="outline" size="sm">
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Zurueck zur Startseite
+            Zurück zur Startseite
           </Link>
         </Button>
 
@@ -40,13 +40,13 @@ export default function ResponsibleGamingPage() {
           </p>
           <h1 className="text-4xl font-semibold sm:text-5xl">Verantwortungsbewusst spielen</h1>
           <p className="max-w-3xl text-muted-foreground">
-            Gluecksspiel ist Unterhaltung und kein Weg zu sicherem Einkommen. Spiele nur, wenn du volljaehrig bist (18+) und deine finanzielle Situation stabil bleibt.
+            Glücksspiel ist Unterhaltung und kein Weg zu sicherem Einkommen. Spiele nur, wenn du volljährig bist (18+) und deine finanzielle Situation stabil bleibt.
           </p>
         </section>
 
         <Card className="border-border/60 bg-card/70">
           <CardHeader>
-            <CardTitle>Grundsaetze fuer sicheres Spielen</CardTitle>
+            <CardTitle>Grundsätze für sicheres Spielen</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm text-muted-foreground">
             {principles.map((principle) => (
@@ -64,17 +64,17 @@ export default function ResponsibleGamingPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm text-muted-foreground">
             <p>
-              Diese Website enthaelt Affiliate-Links. Wenn du ueber einen Partner-Link spielst, kann eine Provision an den Betreiber/Creator ausgezahlt werden.
+              Diese Website enthält Affiliate-Links. Wenn du über einen Partner-Link spielst, kann eine Provision an den Betreiber/Creator ausgezahlt werden.
             </p>
             <p>
-              Fuer Nutzer entstehen dadurch keine zusaetzlichen Kosten. Empfehlungen ersetzen keine eigene Pruefung von Lizenz, Bedingungen und Bonusregeln.
+              Für Nutzer entstehen dadurch keine zusätzlichen Kosten. Empfehlungen ersetzen keine eigene Prüfung von Lizenz, Bedingungen und Bonusregeln.
             </p>
           </CardContent>
         </Card>
 
         <Card className="border-amber-500/40 bg-amber-500/10">
           <CardContent className="pt-6 text-sm text-amber-100/90">
-            Falls du das Gefuehl hast, die Kontrolle zu verlieren, stoppe sofort und suche professionelle Hilfe in deinem Land.
+            Falls du das Gefühl hast, die Kontrolle zu verlieren, stoppe sofort und suche professionelle Hilfe in deinem Land.
           </CardContent>
         </Card>
       </div>

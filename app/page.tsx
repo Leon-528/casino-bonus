@@ -12,7 +12,7 @@ import { casinos, topPickIds } from "@/data/casinos";
 export const metadata: Metadata = {
   title: "Leon_528 Bonus & Partner | Exklusive Casino Boni + Twitch Stats",
   description:
-    "Exklusive Casino Bonus-Partner fuer die Leon_528 Community mit transparenten Bedingungen und live Twitch Media Kit Daten.",
+    "Exklusive Casino Bonus-Partner für die Leon_528 Community mit transparenten Bedingungen und live Twitch Media Kit Daten.",
   alternates: {
     canonical: "/"
   }

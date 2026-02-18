@@ -54,7 +54,7 @@ export function TwitchStatsSection() {
 
         if (!response.ok) {
           const errorData = (await response.json()) as TwitchErrorResponse;
-          throw new Error(errorData.message || "Twitch Daten momentan nicht verfuegbar");
+          throw new Error(errorData.message || "Twitch Daten momentan nicht verfügbar");
         }
 
         const data = (await response.json()) as TwitchSummary;
@@ -69,7 +69,7 @@ export function TwitchStatsSection() {
             message:
               error instanceof Error
                 ? error.message
-                : "Twitch Daten momentan nicht verfuegbar"
+                : "Twitch Daten momentan nicht verfügbar"
           });
         }
       }
@@ -140,12 +140,12 @@ function ErrorState({ message }: { message: string }) {
   return (
     <Card className="border-destructive/40 bg-destructive/10">
       <CardHeader>
-        <CardTitle className="text-xl">Twitch Daten momentan nicht verfuegbar</CardTitle>
+        <CardTitle className="text-xl">Twitch Daten momentan nicht verfügbar</CardTitle>
         <CardDescription>{message}</CardDescription>
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">
-          Bitte spaeter erneut versuchen. Die Casino-Partnerdaten bleiben verfuegbar.
+          Bitte später erneut versuchen. Die Casino-Partnerdaten bleiben verfügbar.
         </p>
       </CardContent>
     </Card>
@@ -187,7 +187,7 @@ function SuccessState({ summary }: { summary: TwitchSummary }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Kanal oeffnen
+                    Kanal öffnen
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -208,7 +208,7 @@ function SuccessState({ summary }: { summary: TwitchSummary }) {
                   value={
                     summary.followerCount !== null
                       ? numberFormatter.format(summary.followerCount)
-                      : "Nicht verfuegbar"
+                      : "Nicht verfügbar"
                   }
                   icon={Users}
                 />

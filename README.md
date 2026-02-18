@@ -1,6 +1,6 @@
 # Leon_528 Bonus & Partner Landingpage
 
-Modernes Next.js Landingpage-Projekt fuer einen Twitch Slot Streamer mit Live-Twitch-Media-Kit und Partner-Casino-Directory.
+Modernes Next.js Landingpage-Projekt für einen Twitch Slot Streamer mit Live-Twitch-Media-Kit und Partner-Casino-Directory.
 
 ## Features
 
@@ -17,9 +17,9 @@ Modernes Next.js Landingpage-Projekt fuer einen Twitch Slot Streamer mit Live-Tw
   - Live/Offline
   - Kategorie/Game + Titel (wenn live)
   - Viewer Count (wenn live)
-  - Last Streamed (fallback ueber `videos`)
+  - Last Streamed (fallback über `videos`)
   - Profilbild + Kanal-Link
-- Sauberer Fehlerzustand ohne Mockdaten: `Twitch Daten momentan nicht verfuegbar`
+- Sauberer Fehlerzustand ohne Mockdaten: `Twitch Daten momentan nicht verfügbar`
 - Vercel-ready inkl. Node runtime in Route Handler
 
 ## Tech Stack
@@ -78,9 +78,9 @@ Der Endpoint `GET /api/twitch/summary` nutzt:
 
 ### Follower Endpoint Hinweis
 
-`/channels/followers` kann je nach Token-Setup eingeschraenkt sein. Deshalb ist ein offizieller Fallback auf `/users/follows?to_id=<id>` implementiert.
+`/channels/followers` kann je nach Token-Setup eingeschränkt sein. Deshalb ist ein offizieller Fallback auf `/users/follows?to_id=<id>` implementiert.
 
-Wenn beide Varianten nicht verfuegbar sind, wird **kein Fake-Wert** angezeigt, sondern `followerCount = null` (UI: "Nicht verfuegbar").
+Wenn beide Varianten nicht verfügbar sind, wird **kein Fake-Wert** angezeigt, sondern `followerCount = null` (UI: "Nicht verfügbar").
 
 ## Lokal starten
 
@@ -103,11 +103,11 @@ npm run build
    - `TWITCH_CLIENT_ID`
    - `TWITCH_CLIENT_SECRET`
    - `TWITCH_CHANNEL_LOGIN` (Wert: `leon_528`)
-4. Deploy ausloesen.
+4. Deploy auslösen.
 
-Danach pruefen:
+Danach prüfen:
 
-- `/` laedt normal
+- `/` lädt normal
 - `/api/twitch/summary` liefert JSON
 - Twitch Stats Section zeigt Live-Daten oder sauberen Error State
 
@@ -115,4 +115,4 @@ Danach pruefen:
 
 - Casino Daten in `data/casinos.ts` sind statisch (beabsichtigt).
 - Twitch Kennzahlen in der UI werden **nicht** hardcoded gerendert.
-- Bitte nur fuer 18+ Zielgruppen einsetzen und lokale rechtliche Vorgaben beachten.
+- Bitte nur für 18+ Zielgruppen einsetzen und lokale rechtliche Vorgaben beachten.

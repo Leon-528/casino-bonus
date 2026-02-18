@@ -160,7 +160,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
           <div>
             <h2 className="text-3xl font-semibold sm:text-4xl">Casino Partner</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Transparente Reviews, schnelle Filter und direkte Bonus-Links fuer die Community.
+              Transparente Reviews, schnelle Filter und direkte Bonus-Links für die Community.
             </p>
           </div>
           <Badge variant="outline" className="w-fit">
@@ -309,7 +309,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
         {filteredAndSorted.length === 0 ? (
           <Card className="mt-6 border-dashed bg-card/50">
             <CardContent className="pt-6 text-sm text-muted-foreground">
-              Keine Casinos fuer diese Suche/Filter gefunden. Entferne einzelne Filter und versuche es erneut.
+              Keine Casinos für diese Suche/Filter gefunden. Entferne einzelne Filter und versuche es erneut.
             </CardContent>
           </Card>
         ) : null}

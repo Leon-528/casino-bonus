@@ -15,7 +15,7 @@ export function ResponsiblePreview() {
               Responsible Gaming
             </p>
             <p className="text-sm text-amber-100/80">
-              Nur fuer Erwachsene (18+). Setze Limits und spiele nur mit Geld, dessen Verlust du dir leisten kannst.
+              Nur für Erwachsene (18+). Setze Limits und spiele nur mit Geld, dessen Verlust du dir leisten kannst.
             </p>
           </div>
           <Button asChild variant="outline" className="border-amber-300/40 bg-transparent text-amber-100 hover:bg-amber-500/20">

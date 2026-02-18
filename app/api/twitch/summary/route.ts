@@ -19,7 +19,7 @@ export async function GET() {
     console.error("Failed to load Twitch summary", error);
 
     return NextResponse.json(
-      { message: "Twitch Daten momentan nicht verfuegbar" },
+      { message: "Twitch Daten momentan nicht verfügbar" },
       {
         status: 502,
         headers: {

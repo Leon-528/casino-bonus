@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Leon_528"
   },
   description:
-    "Premium Bonus & Partner Landingpage fuer die Leon_528 Community mit Twitch Live-Stats und Responsible Gaming Fokus.",
+    "Premium Bonus & Partner Landingpage für die Leon_528 Community mit Twitch Live-Stats und Responsible Gaming Fokus.",
   keywords: [
     "Leon_528",
     "Twitch Streamer",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Leon_528 Bonus & Partner",
     description:
-      "Exklusive Boni fuer die Community plus Live Twitch-Statistiken direkt aus der Twitch API.",
+      "Exklusive Boni für die Community plus Live Twitch-Statistiken direkt aus der Twitch API.",
     type: "website",
     locale: "de_DE"
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Leon_528 Bonus & Partner",
     description:
-      "Exklusive Boni fuer die Community plus Live Twitch-Statistiken direkt aus der Twitch API."
+      "Exklusive Boni für die Community plus Live Twitch-Statistiken direkt aus der Twitch API."
   }
 };
 

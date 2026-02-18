@@ -22,10 +22,10 @@ export function HeroSection() {
             BONI, PARTNER & MEDIA KIT
           </p>
           <h1 className="text-balance text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
-            Exklusive Casino-Boni fuer die Leon_528 Community
+            Exklusive Casino-Boni für die Leon_528 Community
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg">
-            Diese Seite enthaelt Affiliate-Links. 18+ only. Bitte verantwortungsvoll spielen und Bonusbedingungen immer vorab pruefen.
+            Diese Seite enthält Affiliate-Links. 18+ only. Bitte verantwortungsvoll spielen und Bonusbedingungen immer vorab prüfen.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -65,7 +65,7 @@ export function HeroSection() {
                   </button>
                 </TooltipTrigger>
                 <TooltipContent className="max-w-xs text-left">
-                  Wir koennen eine Provision erhalten, wenn du ueber einen Link spielst. Das verursacht fuer dich keine Zusatzkosten.
+                  Wir können eine Provision erhalten, wenn du über einen Link spielst. Das verursacht für dich keine Zusatzkosten.
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

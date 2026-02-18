@@ -4,17 +4,17 @@ const faqItems = [
   {
     question: "Sind das Affiliate-Links?",
     answer:
-      "Ja. Bei einer Registrierung ueber Partner-Links kann eine Provision an den Creator gehen. Fuer dich entstehen keine Zusatzkosten."
+      "Ja. Bei einer Registrierung über Partner-Links kann eine Provision an den Creator gehen. Für dich entstehen keine Zusatzkosten."
   },
   {
     question: "Warum unterscheiden sich Bonusbedingungen?",
     answer:
-      "Jeder Anbieter hat eigene Regeln zu Wagering, Max-Bet und Auszahlungsgrenzen. Vor der Einzahlung immer die T&C pruefen."
+      "Jeder Anbieter hat eigene Regeln zu Wagering, Max-Bet und Auszahlungsgrenzen. Vor der Einzahlung immer die T&C prüfen."
   },
   {
     question: "Was bedeutet Wagering?",
     answer:
-      "Wagering ist die Anzahl, wie oft ein Bonus umgesetzt werden muss, bevor eine Auszahlung moeglich ist."
+      "Wagering ist die Anzahl, wie oft ein Bonus umgesetzt werden muss, bevor eine Auszahlung möglich ist."
   },
   {
     question: "Wie schnell sind Auszahlungen?",
