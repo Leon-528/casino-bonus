@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +6,10 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, ExternalLink, Search, SlidersHorizontal, Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { casinoEnglishCopy } from "@/data/casino-translations";
+import { useLanguage } from "@/components/providers/language-provider";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
@@ -34,11 +36,7 @@ const filterTags: CasinoTag[] = [
   "New"
 ];
 
-const sortOptions: CasinoSortOption[] = [
-  "Recommended",
-  "Highest Rated",
-  "Biggest Bonus"
-];
+const sortOptions: CasinoSortOption[] = ["recommended", "highestRated", "biggestBonus"];
 
 function extractBonusAmount(casino: Casino) {
   const numbers = casino.bonusTitle.match(/\d+/g);
@@ -55,40 +53,62 @@ interface CasinoDirectoryProps {
 }
 
 export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
+  const { language, text } = useLanguage();
   const [search, setSearch] = useState("");
   const [selectedTags, setSelectedTags] = useState<CasinoTag[]>([]);
-  const [sortBy, setSortBy] = useState<CasinoSortOption>("Recommended");
+  const [sortBy, setSortBy] = useState<CasinoSortOption>("recommended");
+
+  const localizedCasinos = useMemo(
+    () =>
+      casinos.map((casino) => {
+        if (language !== "en") {
+          return casino;
+        }
+
+        const englishCopy = casinoEnglishCopy[casino.id];
+
+        return englishCopy ? { ...casino, ...englishCopy } : casino;
+      }),
+    [casinos, language]
+  );
+
+  const localizedTopPicks = useMemo(
+    () =>
+      topPicks.map((casino) => {
+        if (language !== "en") {
+          return casino;
+        }
+
+        const englishCopy = casinoEnglishCopy[casino.id];
+
+        return englishCopy ? { ...casino, ...englishCopy } : casino;
+      }),
+    [language, topPicks]
+  );
 
   const filteredAndSorted = useMemo(() => {
-    const filtered = casinos.filter((casino) => {
-      const matchesSearch = casino.name
-        .toLowerCase()
-        .includes(search.trim().toLowerCase());
+    const filtered = localizedCasinos.filter((casino) => {
+      const matchesSearch = casino.name.toLowerCase().includes(search.trim().toLowerCase());
       const matchesFilters =
-        selectedTags.length === 0 ||
-        selectedTags.every((tag) => casino.tags.includes(tag));
+        selectedTags.length === 0 || selectedTags.every((tag) => casino.tags.includes(tag));
 
       return matchesSearch && matchesFilters;
     });
 
-    if (sortBy === "Highest Rated") {
+    if (sortBy === "highestRated") {
       return [...filtered].sort((a, b) => b.rating - a.rating);
     }
 
-    if (sortBy === "Biggest Bonus") {
-      return [...filtered].sort(
-        (a, b) => extractBonusAmount(b) - extractBonusAmount(a)
-      );
+    if (sortBy === "biggestBonus") {
+      return [...filtered].sort((a, b) => extractBonusAmount(b) - extractBonusAmount(a));
     }
 
     return filtered;
-  }, [casinos, search, selectedTags, sortBy]);
+  }, [localizedCasinos, search, selectedTags, sortBy]);
 
   const toggleTag = (tag: CasinoTag) => {
     setSelectedTags((current) =>
-      current.includes(tag)
-        ? current.filter((value) => value !== tag)
-        : [...current, tag]
+      current.includes(tag) ? current.filter((value) => value !== tag) : [...current, tag]
     );
   };
 
@@ -98,16 +118,16 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300">
-              Highlighted Partners
+              {text.casino.highlightedPartners}
             </p>
-            <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Top Bonus Picks</h2>
+            <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">{text.casino.topBonusPicks}</h2>
           </div>
           <Badge variant="warning" className="hidden md:inline-flex">
-            18+ Responsible Play
+            {text.casino.responsiblePlay}
           </Badge>
         </div>
         <div className="grid gap-5 lg:grid-cols-3">
-          {topPicks.map((casino, index) => (
+          {localizedTopPicks.map((casino, index) => (
             <motion.div
               key={casino.id}
               initial={{ opacity: 0, y: 18 }}
@@ -138,12 +158,8 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                 </CardHeader>
                 <CardFooter className="gap-2">
                   <Button asChild className="flex-1">
-                    <Link
-                      href={casino.affiliateUrl}
-                      target="_blank"
-                      rel="sponsored noopener noreferrer"
-                    >
-                      Bonus sichern
+                    <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
+                      {text.casino.bonusCta}
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -158,13 +174,11 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
       <section id="casinos" className="container pb-16 sm:pb-24">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="text-3xl font-semibold sm:text-4xl">Casino Partner</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Transparente Reviews, schnelle Filter und direkte Bonus-Links für die Community.
-            </p>
+            <h2 className="text-3xl font-semibold sm:text-4xl">{text.casino.sectionTitle}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{text.casino.sectionDescription}</p>
           </div>
           <Badge variant="outline" className="w-fit">
-            Affiliate-Links: no extra cost
+            {text.casino.affiliateHint}
           </Badge>
         </div>
 
@@ -174,8 +188,8 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
               <div className="relative">
                 <Search className="pointer-events-none absolute left-4 top-3.5 h-4 w-4 text-muted-foreground" />
                 <Input
-                  aria-label="Casino nach Name suchen"
-                  placeholder="Nach Casino suchen..."
+                  aria-label={text.casino.searchAriaLabel}
+                  placeholder={text.casino.searchPlaceholder}
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
                   className="pl-10"
@@ -187,13 +201,13 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="w-full sm:w-auto">
                       <SlidersHorizontal className="mr-2 h-4 w-4" />
-                      Sort: {sortBy}
+                      {text.casino.sortPrefix} {text.casino.sortOptions[sortBy]}
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     {sortOptions.map((option) => (
                       <DropdownMenuItem key={option} onClick={() => setSortBy(option)}>
-                        {option}
+                        {text.casino.sortOptions[option]}
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
@@ -213,7 +227,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                     onClick={() => toggleTag(tag)}
                     aria-pressed={active}
                   >
-                    {tag}
+                    {text.casino.tagLabels[tag]}
                   </Button>
                 );
               })}
@@ -264,12 +278,12 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
 
                   <div className="space-y-2">
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      Tags
+                      {text.casino.tagsTitle}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {casino.tags.map((tag) => (
                         <Badge key={tag} variant="outline">
-                          {tag}
+                          {text.casino.tagLabels[tag]}
                         </Badge>
                       ))}
                     </div>
@@ -277,7 +291,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
 
                   <div className="space-y-2">
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                      Regionen & Sprachen
+                      {text.casino.regionsTitle}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {casino.regions.map((region) => (
@@ -290,12 +304,8 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                 </CardContent>
                 <CardFooter className="gap-2">
                   <Button asChild className="flex-1">
-                    <Link
-                      href={casino.affiliateUrl}
-                      target="_blank"
-                      rel="sponsored noopener noreferrer"
-                    >
-                      Bonus sichern
+                    <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
+                      {text.casino.bonusCta}
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -308,9 +318,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
 
         {filteredAndSorted.length === 0 ? (
           <Card className="mt-6 border-dashed bg-card/50">
-            <CardContent className="pt-6 text-sm text-muted-foreground">
-              Keine Casinos für diese Suche/Filter gefunden. Entferne einzelne Filter und versuche es erneut.
-            </CardContent>
+            <CardContent className="pt-6 text-sm text-muted-foreground">{text.casino.noResults}</CardContent>
           </Card>
         ) : null}
       </section>
@@ -319,21 +327,25 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
 }
 
 function CasinoDetailsDialog({ casino }: { casino: Casino }) {
+  const { text } = useLanguage();
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Details</Button>
+        <Button variant="outline">{text.casino.detailsCta}</Button>
       </DialogTrigger>
       <DialogContent className="max-h-[88vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{casino.name} - Review</DialogTitle>
+          <DialogTitle>
+            {casino.name} - {text.casino.reviewTitleSuffix}
+          </DialogTitle>
           <DialogDescription>{casino.reviewLong}</DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-5 md:grid-cols-2">
           <Card className="border-border/60 bg-background/60">
             <CardHeader className="pb-3">
-              <CardTitle className="text-base">Pros</CardTitle>
+              <CardTitle className="text-base">{text.casino.prosTitle}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 pt-0 text-sm">
               {casino.pros.map((pro) => (
@@ -347,7 +359,7 @@ function CasinoDetailsDialog({ casino }: { casino: Casino }) {
 
           <Card className="border-border/60 bg-background/60">
             <CardHeader className="pb-3">
-              <CardTitle className="text-base">Cons</CardTitle>
+              <CardTitle className="text-base">{text.casino.consTitle}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 pt-0 text-sm">
               {casino.cons.map((con) => (
@@ -361,15 +373,12 @@ function CasinoDetailsDialog({ casino }: { casino: Casino }) {
 
         <Card className="border-border/60 bg-background/60">
           <CardContent className="grid gap-3 pt-6 text-sm sm:grid-cols-2">
-            <MetaItem label="Wagering" value={casino.wagering} />
-            <MetaItem label="Min Deposit" value={casino.minDeposit} />
-            <MetaItem label="Payout Speed" value={casino.payoutSpeed} />
+            <MetaItem label={text.casino.labels.wagering} value={casino.wagering} />
+            <MetaItem label={text.casino.labels.minDeposit} value={casino.minDeposit} />
+            <MetaItem label={text.casino.labels.payoutSpeed} value={casino.payoutSpeed} />
+            <MetaItem label={text.casino.labels.crypto} value={casino.crypto ? text.casino.yes : text.casino.no} />
             <MetaItem
-              label="Crypto"
-              value={casino.crypto ? "Ja" : "Nein"}
-            />
-            <MetaItem
-              label="Payment Methods"
+              label={text.casino.labels.paymentMethods}
               value={casino.paymentMethods.join(", ")}
               className="sm:col-span-2"
             />
@@ -391,9 +400,7 @@ function MetaItem({
 }) {
   return (
     <div className={className}>
-      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-        {label}
-      </p>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">{label}</p>
       <p className="mt-1 text-sm text-foreground">{value}</p>
     </div>
   );

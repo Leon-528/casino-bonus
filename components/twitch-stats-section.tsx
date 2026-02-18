@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import {
   WifiOff
 } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,21 +27,22 @@ type FetchState =
   | { status: "error"; message: string }
   | { status: "success"; data: TwitchSummary };
 
-const numberFormatter = new Intl.NumberFormat("de-DE");
-
-function formatDateTime(dateString: string | null) {
+function formatDateTime(dateString: string | null, locale: string, fallback: string) {
   if (!dateString) {
-    return "Unbekannt";
+    return fallback;
   }
 
-  return new Intl.DateTimeFormat("de-DE", {
+  return new Intl.DateTimeFormat(locale, {
     dateStyle: "medium",
     timeStyle: "short"
   }).format(new Date(dateString));
 }
 
 export function TwitchStatsSection() {
+  const { language, text } = useLanguage();
   const [state, setState] = useState<FetchState>({ status: "loading" });
+
+  const locale = language === "de" ? "de-DE" : "en-US";
 
   useEffect(() => {
     let mounted = true;
@@ -53,8 +55,8 @@ export function TwitchStatsSection() {
         });
 
         if (!response.ok) {
-          const errorData = (await response.json()) as TwitchErrorResponse;
-          throw new Error(errorData.message || "Twitch Daten momentan nicht verfügbar");
+          await response.json() as TwitchErrorResponse;
+          throw new Error(text.twitch.unavailableTitle);
         }
 
         const data = (await response.json()) as TwitchSummary;
@@ -62,14 +64,11 @@ export function TwitchStatsSection() {
         if (mounted) {
           setState({ status: "success", data });
         }
-      } catch (error) {
+      } catch {
         if (mounted) {
           setState({
             status: "error",
-            message:
-              error instanceof Error
-                ? error.message
-                : "Twitch Daten momentan nicht verfügbar"
+            message: text.twitch.unavailableTitle
           });
         }
       }
@@ -80,7 +79,7 @@ export function TwitchStatsSection() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [text.twitch.unavailableTitle]);
 
   const liveBadge = useMemo(() => {
     if (state.status !== "success") {
@@ -89,30 +88,32 @@ export function TwitchStatsSection() {
 
     return state.data.isLive ? (
       <Badge variant="success" className="gap-1">
-        <Activity className="h-3.5 w-3.5" /> LIVE
+        <Activity className="h-3.5 w-3.5" /> {text.twitch.liveBadge}
       </Badge>
     ) : (
       <Badge variant="outline" className="gap-1">
-        <WifiOff className="h-3.5 w-3.5" /> OFFLINE
+        <WifiOff className="h-3.5 w-3.5" /> {text.twitch.offlineBadge}
       </Badge>
     );
-  }, [state]);
+  }, [state, text.twitch.liveBadge, text.twitch.offlineBadge]);
 
   return (
     <section id="twitch-stats" className="container pb-16 sm:pb-24">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300">
-            Creator Media Kit
+            {text.twitch.sectionTag}
           </p>
-          <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Twitch Stats</h2>
+          <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">{text.twitch.sectionTitle}</h2>
         </div>
         {liveBadge}
       </div>
 
       {state.status === "loading" ? <LoadingState /> : null}
-      {state.status === "error" ? <ErrorState message={state.message} /> : null}
-      {state.status === "success" ? <SuccessState summary={state.data} /> : null}
+      {state.status === "error" ? (
+        <ErrorState title={text.twitch.unavailableTitle} message={state.message} hint={text.twitch.unavailableHint} />
+      ) : null}
+      {state.status === "success" ? <SuccessState summary={state.data} locale={locale} /> : null}
     </section>
   );
 }
@@ -136,25 +137,41 @@ function LoadingState() {
   );
 }
 
-function ErrorState({ message }: { message: string }) {
+function ErrorState({
+  title,
+  message,
+  hint
+}: {
+  title: string;
+  message: string;
+  hint: string;
+}) {
   return (
     <Card className="border-destructive/40 bg-destructive/10">
       <CardHeader>
-        <CardTitle className="text-xl">Twitch Daten momentan nicht verfügbar</CardTitle>
+        <CardTitle className="text-xl">{title}</CardTitle>
         <CardDescription>{message}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground">
-          Bitte später erneut versuchen. Die Casino-Partnerdaten bleiben verfügbar.
-        </p>
+        <p className="text-sm text-muted-foreground">{hint}</p>
       </CardContent>
     </Card>
   );
 }
 
-function SuccessState({ summary }: { summary: TwitchSummary }) {
-  const liveTitle = summary.live?.title || "Aktuell offline";
-  const liveGame = summary.live?.gameName || "Keine laufende Kategorie";
+function SuccessState({
+  summary,
+  locale
+}: {
+  summary: TwitchSummary;
+  locale: string;
+}) {
+  const { text } = useLanguage();
+
+  const numberFormatter = useMemo(() => new Intl.NumberFormat(locale), [locale]);
+
+  const liveTitle = summary.live?.title || text.twitch.values.currentlyOffline;
+  const liveGame = summary.live?.gameName || text.twitch.values.noCategory;
   const liveViewers =
     typeof summary.live?.viewerCount === "number"
       ? numberFormatter.format(summary.live.viewerCount)
@@ -180,14 +197,14 @@ function SuccessState({ summary }: { summary: TwitchSummary }) {
                   className="rounded-full border border-border/60"
                 />
                 <h3 className="mt-4 text-xl font-semibold">{summary.channel}</h3>
-                <p className="text-sm text-muted-foreground">Twitch Partner Creator</p>
+                <p className="text-sm text-muted-foreground">{text.twitch.profileRole}</p>
                 <Button asChild className="mt-4 w-full">
                   <Link
                     href="https://www.twitch.tv/leon_528"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Kanal öffnen
+                    {text.twitch.openChannel}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -197,35 +214,35 @@ function SuccessState({ summary }: { summary: TwitchSummary }) {
 
           <Tabs defaultValue="live" className="w-full">
             <TabsList>
-              <TabsTrigger value="live">Live Stats</TabsTrigger>
-              <TabsTrigger value="kit">Media Kit</TabsTrigger>
+              <TabsTrigger value="live">{text.twitch.tabs.live}</TabsTrigger>
+              <TabsTrigger value="kit">{text.twitch.tabs.kit}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="live">
               <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 <StatCard
-                  label="Follower"
+                  label={text.twitch.labels.follower}
                   value={
                     summary.followerCount !== null
                       ? numberFormatter.format(summary.followerCount)
-                      : "Nicht verfügbar"
+                      : text.twitch.values.unavailable
                   }
                   icon={Users}
                 />
                 <StatCard
-                  label="Live Viewers"
-                  value={summary.isLive ? liveViewers : "Offline"}
+                  label={text.twitch.labels.liveViewers}
+                  value={summary.isLive ? liveViewers : text.twitch.values.offline}
                   icon={Radio}
                 />
                 <StatCard
-                  label="Kategorie / Game"
+                  label={text.twitch.labels.categoryGame}
                   value={liveGame}
                   icon={Gamepad2}
                 />
-                <StatCard label="Streamtitel" value={liveTitle} icon={Video} className="sm:col-span-2" />
+                <StatCard label={text.twitch.labels.streamTitle} value={liveTitle} icon={Video} className="sm:col-span-2" />
                 <StatCard
-                  label="Zuletzt live"
-                  value={formatDateTime(summary.lastStreamedAt)}
+                  label={text.twitch.labels.lastLive}
+                  value={formatDateTime(summary.lastStreamedAt, locale, text.twitch.values.unknown)}
                   icon={Activity}
                   className="sm:col-span-2 xl:col-span-1"
                 />
@@ -236,19 +253,28 @@ function SuccessState({ summary }: { summary: TwitchSummary }) {
               <Card className="border-border/50 bg-background/50">
                 <CardContent className="grid gap-3 pt-6 text-sm text-muted-foreground">
                   <p>
-                    Creator: <span className="font-semibold text-foreground">Leon_528</span>
+                    {text.twitch.kit.creator}:{" "}
+                    <span className="font-semibold text-foreground">Leon_528</span>
                   </p>
                   <p>
-                    Channel URL: <span className="font-semibold text-foreground">twitch.tv/leon_528</span>
+                    {text.twitch.kit.channelUrl}:{" "}
+                    <span className="font-semibold text-foreground">twitch.tv/leon_528</span>
                   </p>
                   <p>
-                    Live Status: <span className="font-semibold text-foreground">{summary.isLive ? "Live" : "Offline"}</span>
+                    {text.twitch.kit.liveStatus}:{" "}
+                    <span className="font-semibold text-foreground">
+                      {summary.isLive ? text.twitch.liveBadge : text.twitch.offlineBadge}
+                    </span>
                   </p>
                   <p>
-                    Last Streamed: <span className="font-semibold text-foreground">{formatDateTime(summary.lastStreamedAt)}</span>
+                    {text.twitch.kit.lastStreamed}:{" "}
+                    <span className="font-semibold text-foreground">
+                      {formatDateTime(summary.lastStreamedAt, locale, text.twitch.values.unknown)}
+                    </span>
                   </p>
                   <p>
-                    Follower Source: <span className="font-semibold text-foreground">{summary.followerCountSource}</span>
+                    {text.twitch.kit.followerSource}:{" "}
+                    <span className="font-semibold text-foreground">{summary.followerCountSource}</span>
                   </p>
                 </CardContent>
               </Card>
@@ -274,9 +300,7 @@ function StatCard({
   return (
     <Card className={className}>
       <CardContent className="pt-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-          {label}
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">{label}</p>
         <div className="mt-2 flex items-start justify-between gap-3">
           <p className="text-sm font-medium leading-relaxed text-foreground">{value}</p>
           <Icon className="h-4 w-4 shrink-0 text-cyan-300" />

@@ -1,9 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { MonitorCog, MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,6 +15,7 @@ import {
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
+  const { text } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export function ThemeToggle() {
         <Button
           variant="outline"
           size="icon"
-          aria-label="Theme wechseln"
+          aria-label={text.theme.label}
           className="border-border/70 bg-background/60"
         >
           {mounted && theme === "light" ? (
@@ -37,11 +39,11 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
-        <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>{text.theme.dark}</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("light")}>{text.theme.light}</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           <MonitorCog className="mr-2 h-4 w-4" />
-          System
+          {text.theme.system}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

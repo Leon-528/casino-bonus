@@ -1,10 +1,15 @@
+﻿"use client";
+
 import Link from "next/link";
 import { AlertTriangle, ShieldAlert } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function ResponsiblePreview() {
+  const { text } = useLanguage();
+
   return (
     <section id="responsible-gaming" className="container pb-16 sm:pb-24">
       <Card className="border-amber-500/30 bg-amber-500/10">
@@ -12,15 +17,17 @@ export function ResponsiblePreview() {
           <div className="space-y-2">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-amber-200">
               <ShieldAlert className="h-4 w-4" />
-              Responsible Gaming
+              {text.responsiblePreview.badge}
             </p>
-            <p className="text-sm text-amber-100/80">
-              Nur für Erwachsene (18+). Setze Limits und spiele nur mit Geld, dessen Verlust du dir leisten kannst.
-            </p>
+            <p className="text-sm text-amber-100/80">{text.responsiblePreview.text}</p>
           </div>
-          <Button asChild variant="outline" className="border-amber-300/40 bg-transparent text-amber-100 hover:bg-amber-500/20">
+          <Button
+            asChild
+            variant="outline"
+            className="border-amber-300/40 bg-transparent text-amber-100 hover:bg-amber-500/20"
+          >
             <Link href="/responsible-gaming">
-              Mehr Infos
+              {text.responsiblePreview.button}
               <AlertTriangle className="ml-2 h-4 w-4" />
             </Link>
           </Button>

@@ -6,6 +6,7 @@ Modernes Next.js Landingpage-Projekt für einen Twitch Slot Streamer mit Live-Tw
 
 - Next.js App Router + TypeScript + Tailwind + shadcn/ui
 - Premium Landingpage (Dark Mode default, Light Toggle, subtile Framer Motion Animationen)
+- Zweisprachig (Deutsch/Englisch) mit Language Toggle und LocalStorage-Persistenz
 - Sticky Navigation mit Sections: Casinos, Top Bonuses, Twitch Stats, FAQ, Responsible Gaming
 - Casino-Grid mit:
   - Suche

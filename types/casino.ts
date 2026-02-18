@@ -26,4 +26,4 @@ export interface Casino {
   crypto: boolean;
 }
 
-export type CasinoSortOption = "Recommended" | "Highest Rated" | "Biggest Bonus";
+export type CasinoSortOption = "recommended" | "highestRated" | "biggestBonus";

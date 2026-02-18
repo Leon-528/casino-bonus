@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 import { CasinoDirectory } from "@/components/casino-directory";
 import { FaqSection } from "@/components/faq-section";
@@ -10,9 +10,9 @@ import { TwitchStatsSection } from "@/components/twitch-stats-section";
 import { casinos, topPickIds } from "@/data/casinos";
 
 export const metadata: Metadata = {
-  title: "Leon_528 Bonus & Partner | Exklusive Casino Boni + Twitch Stats",
+  title: "Leon_528 Bonus & Partner | Casino Bonuses + Twitch Stats",
   description:
-    "Exklusive Casino Bonus-Partner für die Leon_528 Community mit transparenten Bedingungen und live Twitch Media Kit Daten.",
+    "Exclusive casino partner bonuses for the Leon_528 community with transparent terms and live Twitch media kit data.",
   alternates: {
     canonical: "/"
   }

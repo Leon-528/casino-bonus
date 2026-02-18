@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Sora, Space_Mono } from "next/font/google";
 
+import { LanguageProvider } from "@/components/providers/language-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Leon_528"
   },
   description:
-    "Premium Bonus & Partner Landingpage für die Leon_528 Community mit Twitch Live-Stats und Responsible Gaming Fokus.",
+    "Premium Bonus & Partner landing page for the Leon_528 community with Twitch live stats and a responsible-gaming focus.",
   keywords: [
     "Leon_528",
     "Twitch Streamer",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Leon_528 Bonus & Partner",
     description:
-      "Exklusive Boni für die Community plus Live Twitch-Statistiken direkt aus der Twitch API.",
+      "Exclusive community bonuses plus live Twitch metrics directly from the Twitch API.",
     type: "website",
     locale: "de_DE"
   },
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Leon_528 Bonus & Partner",
     description:
-      "Exklusive Boni für die Community plus Live Twitch-Statistiken direkt aus der Twitch API."
+      "Exclusive community bonuses plus live Twitch metrics directly from the Twitch API."
   }
 };
 
@@ -62,7 +63,7 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="leon-528-theme"
         >
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
