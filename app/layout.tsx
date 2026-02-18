@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { Sora, Space_Mono } from "next/font/google";
 
+import { AgeGate } from "@/components/age-gate";
 import { LanguageProvider } from "@/components/providers/language-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
@@ -63,7 +64,10 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="leon-528-theme"
         >
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <AgeGate />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
