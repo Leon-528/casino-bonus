@@ -25,16 +25,16 @@ export const translations = {
     },
     hero: {
       badge: "BONI, PARTNER & MEDIA KIT",
-      headline: "Exklusive Casino-Boni fÃ¼r die Leon528 Community",
+      headline: "Exklusive Casino-Boni für die Leon528 Community",
       subtext:
-        "Diese Seite enthÃ¤lt Affiliate-Links. 18+ only. Bitte verantwortungsvoll spielen und Bonusbedingungen immer vorab prÃ¼fen.",
+        "Diese Seite enthält Affiliate-Links. 18+ only. Bitte verantwortungsvoll spielen und Bonusbedingungen immer vorab prüfen.",
       primaryCta: "Top Boni ansehen",
       secondaryCta: "Auf Twitch anschauen",
       transparentLabel: "Transparente Partnerhinweise",
       warningLabel: "Gambling kann suchterzeugend sein",
       disclosureLabel: "Affiliate Disclosure",
       disclosureTooltip:
-        "Wir kÃ¶nnen eine Provision erhalten, wenn du Ã¼ber einen Link spielst. Das verursacht fÃ¼r dich keine Zusatzkosten."
+        "Wir können eine Provision erhalten, wenn du über einen Link spielst. Das verursacht für dich keine Zusatzkosten."
     },
     casino: {
       highlightedPartners: "Highlighted Partners",
@@ -42,15 +42,15 @@ export const translations = {
       responsiblePlay: "18+ Responsible Play",
       sectionTitle: "Casino Partner",
       sectionDescription:
-        "Transparente Reviews, schnelle Filter und direkte Bonus-Links fÃ¼r die Community.",
+        "Transparente Reviews, schnelle Filter und direkte Bonus-Links für die Community.",
       affiliateHint: "Affiliate-Links: no extra cost",
       searchAriaLabel: "Casino nach Name suchen",
       searchPlaceholder: "Nach Casino suchen...",
       sortPrefix: "Sort:",
       sortOptions: {
         recommended: "Empfohlen",
-        highestRated: "HÃ¶chste Bewertung",
-        biggestBonus: "GrÃ¶ÃŸter Bonus"
+        highestRated: "Höchste Bewertung",
+        biggestBonus: "Größter Bonus"
       },
       tagLabels: {
         "Highest Bonus": "Highest Bonus",
@@ -64,7 +64,7 @@ export const translations = {
       bonusCta: "Bonus sichern",
       detailsCta: "Details",
       noResults:
-        "Keine Casinos fÃ¼r diese Suche/Filter gefunden. Entferne einzelne Filter und versuche es erneut.",
+        "Keine Casinos für diese Suche/Filter gefunden. Entferne einzelne Filter und versuche es erneut.",
       reviewTitleSuffix: "Review",
       prosTitle: "Pros",
       consTitle: "Cons",
@@ -83,11 +83,11 @@ export const translations = {
       sectionTitle: "Twitch Stats",
       liveBadge: "LIVE",
       offlineBadge: "OFFLINE",
-      unavailableTitle: "Twitch Daten momentan nicht verfÃ¼gbar",
+      unavailableTitle: "Twitch Daten momentan nicht verfügbar",
       unavailableHint:
-        "Bitte spÃ¤ter erneut versuchen. Die Casino-Partnerdaten bleiben verfÃ¼gbar.",
+        "Bitte später erneut versuchen. Die Casino-Partnerdaten bleiben verfügbar.",
       profileRole: "Twitch Partner Creator",
-      openChannel: "Kanal Ã¶ffnen",
+      openChannel: "Kanal öffnen",
       tabs: {
         live: "Live Stats",
         kit: "Media Kit"
@@ -104,7 +104,7 @@ export const translations = {
         offline: "Offline",
         noCategory: "Keine laufende Kategorie",
         currentlyOffline: "Aktuell offline",
-        unavailable: "Nicht verfÃ¼gbar"
+        unavailable: "Nicht verfügbar"
       },
       kit: {
         creator: "Creator",
@@ -121,17 +121,17 @@ export const translations = {
         {
           question: "Sind das Affiliate-Links?",
           answer:
-            "Ja. Bei einer Registrierung Ã¼ber Partner-Links kann eine Provision an den Creator gehen. FÃ¼r dich entstehen keine Zusatzkosten."
+            "Ja. Bei einer Registrierung über Partner-Links kann eine Provision an den Creator gehen. Für dich entstehen keine Zusatzkosten."
         },
         {
           question: "Warum unterscheiden sich Bonusbedingungen?",
           answer:
-            "Jeder Anbieter hat eigene Regeln zu Wagering, Max-Bet und Auszahlungsgrenzen. Vor der Einzahlung immer die T&C prÃ¼fen."
+            "Jeder Anbieter hat eigene Regeln zu Wagering, Max-Bet und Auszahlungsgrenzen. Vor der Einzahlung immer die T&C prüfen."
         },
         {
           question: "Was bedeutet Wagering?",
           answer:
-            "Wagering ist die Anzahl, wie oft ein Bonus umgesetzt werden muss, bevor eine Auszahlung mÃ¶glich ist."
+            "Wagering ist die Anzahl, wie oft ein Bonus umgesetzt werden muss, bevor eine Auszahlung möglich ist."
         },
         {
           question: "Wie schnell sind Auszahlungen?",
@@ -148,12 +148,12 @@ export const translations = {
     responsiblePreview: {
       badge: "Responsible Gaming",
       text:
-        "Nur fÃ¼r Erwachsene (18+). Setze Limits und spiele nur mit Geld, dessen Verlust du dir leisten kannst.",
+        "Nur für Erwachsene (18+). Setze Limits und spiele nur mit Geld, dessen Verlust du dir leisten kannst.",
       button: "Mehr Infos"
     },
     footer: {
       disclosure:
-        "Affiliate Disclosure: Diese Seite enthÃ¤lt Partner-Links. 18+ only. Bitte spiele verantwortungsvoll.",
+        "Affiliate Disclosure: Diese Seite enthält Partner-Links. 18+ only. Bitte spiele verantwortungsvoll.",
       responsibleGaming: "Responsible Gaming",
       terms: "Terms & Bonusbedingungen gelten je Anbieter."
     },
@@ -161,34 +161,34 @@ export const translations = {
       badge: "18+",
       title: "Willkommen bei Leon528",
       description:
-        "Diese Seite ist ausschliesslich fuer Personen ab 18 Jahren bestimmt. Bitte beachte die gesetzlichen Bestimmungen deines Aufenthaltsorts.",
-      continueButton: "Ich bin ueber 18 - Weiter",
+        "Diese Seite ist ausschließlich für Personen ab 18 Jahren bestimmt. Bitte beachte die gesetzlichen Bestimmungen deines Aufenthaltsorts.",
+      continueButton: "Ich bin über 18 - Weiter",
       leaveButton: "Seite verlassen",
-      legalPrefix: "Gluecksspiel kann suechtig machen. Hilfe unter",
+      legalPrefix: "Glücksspiel kann süchtig machen. Hilfe unter",
       legalLinkLabel: "check-dein-spiel.de",
       legalLinkHref: "https://www.check-dein-spiel.de/"
     },
     responsiblePage: {
-      backToHome: "ZurÃ¼ck zur Startseite",
+      backToHome: "Zurück zur Startseite",
       badge: "Responsible Gaming & 18+",
       title: "Verantwortungsbewusst spielen",
       intro:
-        "GlÃ¼cksspiel ist Unterhaltung und kein Weg zu sicherem Einkommen. Spiele nur, wenn du volljÃ¤hrig bist (18+) und deine finanzielle Situation stabil bleibt.",
-      principlesTitle: "GrundsÃ¤tze fÃ¼r sicheres Spielen",
+        "Glücksspiel ist Unterhaltung und kein Weg zu sicherem Einkommen. Spiele nur, wenn du volljährig bist (18+) und deine finanzielle Situation stabil bleibt.",
+      principlesTitle: "Grundsätze für sicheres Spielen",
       principles: [
         "Spiele nur mit einem festen Budget und setze vorab klare Limits.",
         "Niemals Verlusten hinterherjagen (No Chasing).",
         "Nutze Reality Checks, Session-Limits und Selbstausschluss-Optionen.",
-        "Lege regelmÃ¤ÃŸige Pausen ein und spiele nicht unter Stress.",
-        "Such dir Hilfe, sobald Spielen Druck oder finanzielle Probleme auslÃ¶st."
+        "Lege regelmäßige Pausen ein und spiele nicht unter Stress.",
+        "Such dir Hilfe, sobald Spielen Druck oder finanzielle Probleme auslöst."
       ],
       disclosureTitle: "Affiliate Disclosure",
       disclosureTextOne:
-        "Diese Website enthÃ¤lt Affiliate-Links. Wenn du Ã¼ber einen Partner-Link spielst, kann eine Provision an den Betreiber/Creator ausgezahlt werden.",
+        "Diese Website enthält Affiliate-Links. Wenn du über einen Partner-Link spielst, kann eine Provision an den Betreiber/Creator ausgezahlt werden.",
       disclosureTextTwo:
-        "FÃ¼r Nutzer entstehen dadurch keine zusÃ¤tzlichen Kosten. Empfehlungen ersetzen keine eigene PrÃ¼fung von Lizenz, Bedingungen und Bonusregeln.",
+        "Für Nutzer entstehen dadurch keine zusätzlichen Kosten. Empfehlungen ersetzen keine eigene Prüfung von Lizenz, Bedingungen und Bonusregeln.",
       warning:
-        "Falls du das GefÃ¼hl hast, die Kontrolle zu verlieren, stoppe sofort und suche professionelle Hilfe in deinem Land."
+        "Falls du das Gefühl hast, die Kontrolle zu verlieren, stoppe sofort und suche professionelle Hilfe in deinem Land."
     }
   },
   en: {
@@ -384,7 +384,3 @@ export const translations = {
 } as const;
 
 export type TranslationDictionary = (typeof translations)[Language];
-
-
-
-
