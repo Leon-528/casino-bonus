@@ -34,14 +34,14 @@ export const casinos: Casino[] = [
     name: "SLOTORO",
     logo: "/logos/slotoro.svg",
     rating: 4.9,
-    bonusTitle: "100% bis EUR150 + 100 Freispiele",
+    bonusTitle: "150% + 100 FS in Joker Stoker",
     bonusDetails:
-      "Exklusiver Slotoro-Deal fuer die Community mit starkem Willkommenspaket und klarem Bonus-Flow.",
+      "Exklusiver Slotoro-Deal für die Community: 150% + 100 FS in Joker Stoker.",
     benefits: [
-      "100 Freispiele als Welcome-Extra",
+      "150% Bonus + 100 FS in Joker Stoker",
       "Schneller Account-Start auf Desktop und Mobile",
-      "Regelmaessige Promo-Aktionen und Reloads",
-      "Uebersichtliche Bonusanzeige im Konto"
+      "Regelmäßige Promo-Aktionen und Reloads",
+      "Übersichtliche Bonusanzeige im Konto"
     ],
     regions: ["DE", "AT", "CH", "EU"],
     tags: ["Highest Bonus", "New"],
@@ -49,9 +49,9 @@ export const casinos: Casino[] = [
     affiliateUrl: slotoroAffiliateUrl,
     reviewLong:
       "Slotoro bietet ein fokussiertes Bonusangebot mit solidem Einstieg und einfacher Navigation. Besonders stark ist der schnelle Onboarding-Prozess inklusive klarer Bonusdarstellung.",
-    pros: ["Starker Welcome-Bonus", "Saubere mobile Nutzerfuehrung", "Klare Bonuskommunikation"],
-    cons: ["Aktionsumfang kann je Region variieren", "Bonusbedingungen vor Aktivierung pruefen"],
-    wagering: "Gemaess Bonusbedingungen",
+    pros: ["Starker Welcome-Bonus", "Saubere mobile Nutzerführung", "Klare Bonuskommunikation"],
+    cons: ["Aktionsumfang kann je Region variieren", "Bonusbedingungen vor Aktivierung prüfen"],
+    wagering: "Gemäß Bonusbedingungen",
     minDeposit: "EUR20",
     payoutSpeed: "Bis zu 24 Stunden",
     crypto: false

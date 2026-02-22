@@ -6,6 +6,21 @@ export type LocalizedCasinoCopy = Pick<
 >;
 
 export const casinoEnglishCopy: Record<string, LocalizedCasinoCopy> = {
+  slotoro: {
+    bonusTitle: "150% + 100 FS in Joker Stoker",
+    bonusDetails:
+      "Exclusive Slotoro deal for the community: 150% + 100 FS in Joker Stoker.",
+    benefits: [
+      "150% bonus + 100 FS in Joker Stoker",
+      "Fast account setup on desktop and mobile",
+      "Regular promo campaigns and reloads",
+      "Clear bonus overview in the account"
+    ],
+    reviewLong:
+      "Slotoro offers a focused bonus package with a smooth start and easy navigation. A key strength is the fast onboarding flow and transparent bonus presentation.",
+    pros: ["Strong welcome bonus", "Clean mobile user flow", "Clear bonus communication"],
+    cons: ["Promotion scope may vary by region", "Check bonus terms before activating"]
+  },
   "northstar-casino": {
     bonusTitle: "200% up to EUR500 + 100 Free Spins",
     bonusDetails:
