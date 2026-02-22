@@ -51,6 +51,14 @@ function isSoonPlaceholder(casino: Casino) {
   return casino.name.trim().toUpperCase() === "SOON";
 }
 
+function getLogoImageClass(casino: Casino) {
+  if (casino.id === "slotoro") {
+    return "object-contain p-1.5";
+  }
+
+  return "object-cover";
+}
+
 interface CasinoDirectoryProps {
   casinos: Casino[];
   topPicks: Casino[];
@@ -147,7 +155,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                       alt={`${casino.name} Logo`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
+                      className={getLogoImageClass(casino)}
                     />
                   </div>
                   <div className="flex items-center justify-between">
@@ -267,7 +275,7 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                       alt={`${casino.name} Logo`}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
+                      className={getLogoImageClass(casino)}
                     />
                   </div>
                   <div className="flex items-center justify-between gap-3">
