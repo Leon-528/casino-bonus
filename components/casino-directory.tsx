@@ -47,6 +47,10 @@ function extractBonusAmount(casino: Casino) {
   return Math.max(...numbers.map((value) => Number(value)));
 }
 
+function isSoonPlaceholder(casino: Casino) {
+  return casino.name.trim().toUpperCase() === "SOON";
+}
+
 interface CasinoDirectoryProps {
   casinos: Casino[];
   topPicks: Casino[];
@@ -148,22 +152,32 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                   </div>
                   <div className="flex items-center justify-between">
                     <CardTitle>{casino.name}</CardTitle>
-                    <span className="inline-flex items-center gap-1 text-sm text-amber-300">
-                      <Star className="h-4 w-4 fill-current" />
-                      {casino.rating.toFixed(1)}
-                    </span>
+                    {isSoonPlaceholder(casino) ? null : (
+                      <span className="inline-flex items-center gap-1 text-sm text-amber-300">
+                        <Star className="h-4 w-4 fill-current" />
+                        {casino.rating.toFixed(1)}
+                      </span>
+                    )}
                   </div>
                   <Badge className="w-fit">{casino.bonusTitle}</Badge>
                   <CardDescription>{casino.bonusDetails}</CardDescription>
                 </CardHeader>
                 <CardFooter className="gap-2">
-                  <Button asChild className="flex-1">
-                    <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
-                      {text.casino.bonusCta}
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <CasinoDetailsDialog casino={casino} />
+                  {isSoonPlaceholder(casino) ? (
+                    <Button className="flex-1" disabled>
+                      SOON
+                    </Button>
+                  ) : (
+                    <>
+                      <Button asChild className="flex-1">
+                        <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
+                          {text.casino.bonusCta}
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <CasinoDetailsDialog casino={casino} />
+                    </>
+                  )}
                 </CardFooter>
               </Card>
             </motion.div>
@@ -258,10 +272,12 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <CardTitle>{casino.name}</CardTitle>
-                    <span className="inline-flex items-center gap-1 text-sm text-amber-300">
-                      <Star className="h-4 w-4 fill-current" />
-                      {casino.rating.toFixed(1)}
-                    </span>
+                    {isSoonPlaceholder(casino) ? null : (
+                      <span className="inline-flex items-center gap-1 text-sm text-amber-300">
+                        <Star className="h-4 w-4 fill-current" />
+                        {casino.rating.toFixed(1)}
+                      </span>
+                    )}
                   </div>
                   <Badge className="w-fit">{casino.bonusTitle}</Badge>
                   <CardDescription>{casino.bonusDetails}</CardDescription>
@@ -303,13 +319,21 @@ export function CasinoDirectory({ casinos, topPicks }: CasinoDirectoryProps) {
                   </div>
                 </CardContent>
                 <CardFooter className="gap-2">
-                  <Button asChild className="flex-1">
-                    <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
-                      {text.casino.bonusCta}
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <CasinoDetailsDialog casino={casino} />
+                  {isSoonPlaceholder(casino) ? (
+                    <Button className="flex-1" disabled>
+                      SOON
+                    </Button>
+                  ) : (
+                    <>
+                      <Button asChild className="flex-1">
+                        <Link href={casino.affiliateUrl} target="_blank" rel="sponsored noopener noreferrer">
+                          {text.casino.bonusCta}
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <CasinoDetailsDialog casino={casino} />
+                    </>
+                  )}
                 </CardFooter>
               </Card>
             ))}
